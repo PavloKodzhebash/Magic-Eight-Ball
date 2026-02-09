@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Волшебный шар судьбы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px #000;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: #f39c12;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #000;
+        }
+        button:hover {
+            background-color: #e67e22;
+        }
+        #answer {
+            font-weight: bold;
+            margin-top: 30px;
+            font-size: 24px;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Волшебный шар судьбы</h1>
+
+<input type="text" id="question" placeholder="Введите ваш вопрос">
+<br>
+<button onclick="shakeBall()">Трясти шар</button>
+
+<div id="answer"></div>
+
+<script>
+    const answers = [
+        "Да, без сомнений.",
+        "Нет, не в этот раз.",
+        "Будущее неясно.",
+        "Абсолютно!",
+        "Спроси позже.",
+        "Очень сомнительно.",
+        "Знаки указывают на «да».",
+        "На это лучше не рассчитывать."
+    ];
+
+    function shakeBall() {
+        const question = document.getElementById("question").value;
+        if (!question) {
+            alert("Сначала задайте вопрос!");
+            return;
+        }
+
+        // Randomly select answer
+        const randomIndex = Math.floor(Math.random() * answers.length);
+        const answer = answers[randomIndex];
+
+        // Display answer
+        document.getElementById("answer").innerText = "Ответ: " + answer;
+
+        // Ask if user wants to continue
+        setTimeout(() => {
+            const again = confirm("Хотите задать ещё один вопрос?");
+            if (again) {
+                document.getElementById("question").value = "";
+                document.getElementById("answer").innerText = "";
+            }
+        }, 100);
+    }
+</script>
+
+</body>
+</html>
