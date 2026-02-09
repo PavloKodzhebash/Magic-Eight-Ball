@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Волшебный шар судьбы</title>
+    <title>Magic 8-Ball Fortune Teller</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,30 +47,30 @@
 </head>
 <body>
 
-<h1>Волшебный шар судьбы</h1>
+<h1>Magic 8-Ball Fortune Teller</h1>
 
-<input type="text" id="question" placeholder="Введите ваш вопрос">
+<input type="text" id="question" placeholder="Ask a yes/no question">
 <br>
-<button onclick="shakeBall()">Трясти шар</button>
+<button onclick="shakeBall()">Shake the 8-Ball</button>
 
 <div id="answer"></div>
 
 <script>
     const answers = [
-        "Да, без сомнений.",
-        "Нет, не в этот раз.",
-        "Будущее неясно.",
-        "Абсолютно!",
-        "Спроси позже.",
-        "Очень сомнительно.",
-        "Знаки указывают на «да».",
-        "На это лучше не рассчитывать."
+        "Yes, definitely.",
+        "No, not this time.",
+        "The future is unclear.",
+        "Absolutely!",
+        "Ask again later.",
+        "Very doubtful.",
+        "Signs point to yes.",
+        "I wouldn't count on it."
     ];
 
     function shakeBall() {
         const question = document.getElementById("question").value;
         if (!question) {
-            alert("Сначала задайте вопрос!");
+            alert("Please ask a question first!");
             return;
         }
 
@@ -79,11 +79,11 @@
         const answer = answers[randomIndex];
 
         // Display answer
-        document.getElementById("answer").innerText = "Ответ: " + answer;
+        document.getElementById("answer").innerText = "Answer: " + answer;
 
         // Ask if user wants to continue
         setTimeout(() => {
-            const again = confirm("Хотите задать ещё один вопрос?");
+            const again = confirm("Do you want to ask another question?");
             if (again) {
                 document.getElementById("question").value = "";
                 document.getElementById("answer").innerText = "";
